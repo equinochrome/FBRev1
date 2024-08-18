@@ -1,10 +1,9 @@
 #pragma once
 #include "main.h"
-#include "lemlib/api.hpp" // IWYU pragma: keep
-#include "api.h" // IWYU pragma: keep
 
+// Autons
+ void test();
 
-void test();
-
-
+void test2();
+// Other stuff
 
