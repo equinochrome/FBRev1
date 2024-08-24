@@ -20,6 +20,8 @@
   rd::Selector selector({
     {"test", &test},
    {"test2", &test2},
+{"BlueLeft1", &BlueLeft1},
+{"BlueLeft2", &BlueLeft2},
 
 });
 /**
@@ -28,9 +30,12 @@
  * All other competition modes are blocked by initialize; it is recommended
  * to keep execution time for this mode under a few seconds.
  */
+
+
+
 void initialize() {
     chassis.calibrate();
-
+    
     
     
 
