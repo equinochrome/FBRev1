@@ -6,6 +6,7 @@
 #include "pros/imu.hpp" // IWYU pragma: keep
 #include "pros/misc.hpp" // IWYU pragma: keep
 #include "pros/motor_group.hpp" // IWYU pragma: keep
+#include "pros/optical.hpp" 
 
 // Controller
 static pros::Controller controller(pros::E_CONTROLLER_MASTER);
@@ -18,6 +19,7 @@ static pros::Motor Hook(-2, pros::MotorGearset::blue);
 
 static pros::adi::DigitalOut Lift('F'); 
 static pros::adi::DigitalOut Mogo('E'); 
+static pros::Optical color(19);
 // drivetrain settings
 static lemlib::Drivetrain drivetrain(&left_motors, // left motor group
                               &right_motors, // right motor group
@@ -93,3 +95,6 @@ static lemlib::Chassis chassis(drivetrain, // drivetrain settings
 
 
 
+// Other stuff
+static bool BlueTeam = false;
+static bool RedTeam = false;

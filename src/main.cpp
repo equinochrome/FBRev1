@@ -9,7 +9,7 @@
 #include "pros/abstract_motor.hpp" // IWYU pragma: keep
 #include "pros/adi.hpp"
 #include "pros/misc.h"
-#include "pros/motors.hpp"
+#include "pros/motors.hpp" // IWYU pragma: keep
 #include "pros/rtos.hpp"
 
 
