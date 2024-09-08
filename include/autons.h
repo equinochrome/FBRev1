@@ -8,7 +8,7 @@ void test2();
 
 void BlueLeft1();
 
-void BlueLeft2();
+void BlueRight1();
 // Other stuff
 
 

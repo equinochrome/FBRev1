@@ -1,5 +1,6 @@
 #include "devices.h"
 #include "autons.h"
+#include "lemlib/chassis/chassis.hpp"
 #include "pros/rtos.hpp" // IWYU pragma: keep 
 
 void test(){
@@ -22,6 +23,10 @@ while (pros::millis()< future) {
 
 
 void test2(){
+    // set position to x:0, y:0, heading:0
+    chassis.setPose(0, 0, 0);
+    // turn to face heading 90 with a very long timeout
+    chassis.turnToHeading(90, 100000);
 };
 
 void BlueLeft1(){
@@ -85,6 +90,27 @@ int future = pros::millis() + 8000;
 
 };
 
-void BlueLeft2(){
-BlueTeam = true;
+void BlueRight1(){
+    BlueTeam = true;
+    chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+    chassis.setPose(62,12, 0);
+    chassis.moveToPose(62, -.05, 0, 2000, {.forwards = false, .lead = .6, .minSpeed = 60});
+    chassis.turnToHeading(270, 800);
+    chassis.moveToPose(68, 0, 270, 2000, {.forwards = false, .lead = .25, .minSpeed = 60});
+    pros::delay(500);
+    Hook.move(-127);
+    pros::delay(500);
+    Hook.move(0);
+    chassis.moveToPose(50, 13, 300, 4000, {.lead = .4, .minSpeed = 100});
+    chassis.turnToHeading(105, 1000);
+    chassis.moveToPose(37.5, 22.7, 100, 2000, {.forwards = false, .lead = .25, .maxSpeed = 80});
+    pros::delay(1000);
+    Mogo.set_value(true);
+    chassis.turnToHeading(0, 800);
+    Intake.move(127);
+    Hook.move(-127);
+    chassis.moveToPose(36, 40, 345, 2000, {.lead = .25});
+    chassis.turnToHeading(270, 800);
+    chassis.moveToPose(20, 45, 280, 2000, {.lead = .4});
+    chassis.swingToHeading(305, lemlib::DriveSide::LEFT, 800);
 };

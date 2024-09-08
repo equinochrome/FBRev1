@@ -21,7 +21,7 @@
     {"test", &test},
    {"test2", &test2},
 {"BlueLeft1", &BlueLeft1},
-{"BlueLeft2", &BlueLeft2},
+{"BlueRight1", &BlueRight1},
 
 });
 /**
