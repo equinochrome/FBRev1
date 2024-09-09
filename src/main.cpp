@@ -20,8 +20,10 @@
   rd::Selector selector({
     {"test", &test},
    {"test2", &test2},
-{"BlueLeft1", &BlueLeft1},
-{"BlueRight1", &BlueRight1},
+{"BluePos1", &BluePos1},
+{"BlueNeg1", &BlueNeg1},
+{"RedPos1", &RedPos1},
+{"RedNeg1", &RedNeg1},
 
 });
 /**

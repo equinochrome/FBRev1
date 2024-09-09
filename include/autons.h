@@ -6,9 +6,13 @@
 
 void test2();
 
-void BlueLeft1();
+void BluePos1();
 
-void BlueRight1();
+void BlueNeg1();
+
+void RedPos1();
+
+void RedNeg1();
 // Other stuff
 
 

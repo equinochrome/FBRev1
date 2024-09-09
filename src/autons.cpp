@@ -29,7 +29,7 @@ void test2(){
     chassis.turnToHeading(90, 100000);
 };
 
-void BlueLeft1(){
+void BluePos1(){
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
 BlueTeam = true;
 int future = pros::millis() + 8000;
@@ -90,20 +90,20 @@ int future = pros::millis() + 8000;
 
 };
 
-void BlueRight1(){
+void BlueNeg1(){
     BlueTeam = true;
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     chassis.setPose(62,12, 0);
-    chassis.moveToPose(62, -.05, 0, 2000, {.forwards = false, .lead = .6, .minSpeed = 60});
+    chassis.moveToPose(62, 0.25, 0, 2000, {.forwards = false, .lead = .6, .minSpeed = 60});
     chassis.turnToHeading(270, 800);
-    chassis.moveToPose(68, 0, 270, 2000, {.forwards = false, .lead = .25, .minSpeed = 60});
+    chassis.moveToPose(69, 0.25, 270, 2000, {.forwards = false, .lead = .25, .minSpeed = 60});
     pros::delay(500);
     Hook.move(-127);
     pros::delay(500);
     Hook.move(0);
     chassis.moveToPose(50, 13, 300, 4000, {.lead = .4, .minSpeed = 100});
     chassis.turnToHeading(105, 1000);
-    chassis.moveToPose(37.5, 22.7, 100, 2000, {.forwards = false, .lead = .25, .maxSpeed = 80});
+    chassis.moveToPose(36, 23.7, 100, 2000, {.forwards = false, .lead = .25, .maxSpeed = 80});
     pros::delay(1000);
     Mogo.set_value(true);
     chassis.turnToHeading(0, 800);
@@ -112,5 +112,38 @@ void BlueRight1(){
     chassis.moveToPose(36, 40, 345, 2000, {.lead = .25});
     chassis.turnToHeading(270, 800);
     chassis.moveToPose(20, 45, 280, 2000, {.lead = .4});
-    chassis.swingToHeading(305, lemlib::DriveSide::LEFT, 800);
+    chassis.swingToHeading(325, lemlib::DriveSide::LEFT, 800);
+    chassis.moveToPose(20, 50, 305, 2000, {.lead = .6});
+    pros::delay(500);
+    chassis.moveToPose(36, 23.7, 305, 2000, {.forwards = false, .lead = .25, .minSpeed = 100});
+    chassis.turnToHeading(305, 800);
+    pros::delay(400);
+    Intake.move(0);
+    Hook.move(0);
+    Mogo.set_value(false);
+    chassis.moveToPose(24, 12, 135, 2000, {.lead = .25, .minSpeed = 100});
+    pros::delay(400);
+    Lift.set_value(true);
 };
+
+void RedPos1(){
+
+}
+
+void RedNeg1(){
+    BlueTeam = false;
+    chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+    chassis.setPose(-62,12, 0);
+    chassis.moveToPose(-62, 0.25, 0, 2000, {.forwards = false, .lead = .6, .minSpeed = 60});
+    chassis.turnToHeading(90, 800);
+    chassis.moveToPose(-69, 0.25, 90, 2000, {.forwards = false, .lead = .25, .minSpeed = 60});
+    pros::delay(500);
+    Hook.move(-127);
+    pros::delay(500);
+    Hook.move(0);
+    chassis.moveToPose(-50, 13, 120, 4000, {.lead = .4, .minSpeed = 100});
+    chassis.turnToHeading(285, 1000);
+    chassis.moveToPose(-36, 23.7, 280, 2000, {.forwards = false, .lead = .25, .maxSpeed = 80});
+    pros::delay(1000);
+    Mogo.set_value(true);
+}
