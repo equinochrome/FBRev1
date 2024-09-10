@@ -133,7 +133,7 @@ void RedPos1(){
 void RedNeg1(){
     BlueTeam = false;
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-    chassis.setPose(-62,12, 0);
+    chassis.setPose(-62,10.5, 0);
     chassis.moveToPose(-62, 0.25, 0, 2000, {.forwards = false, .lead = .6, .minSpeed = 60});
     chassis.turnToHeading(90, 800);
     chassis.moveToPose(-69, 0.25, 90, 2000, {.forwards = false, .lead = .25, .minSpeed = 60});
@@ -143,7 +143,13 @@ void RedNeg1(){
     Hook.move(0);
     chassis.moveToPose(-50, 13, 120, 4000, {.lead = .4, .minSpeed = 100});
     chassis.turnToHeading(285, 1000);
-    chassis.moveToPose(-36, 23.7, 280, 2000, {.forwards = false, .lead = .25, .maxSpeed = 80});
+    chassis.moveToPose(-30, 23.7, 262, 2000, {.forwards = false, .lead = .25, .maxSpeed = 80});
     pros::delay(1000);
     Mogo.set_value(true);
+    chassis.turnToHeading(0, 800);
+    Intake.move(127);
+    Hook.move(-127);
+    chassis.moveToPose(-34, 40, -345, 2000, {.lead = .25});
+    chassis.turnToHeading(-270, 800);
+    chassis.moveToPose(-19, 44, -280, 2000, {.lead = .4});
 }
