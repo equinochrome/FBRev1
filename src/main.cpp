@@ -21,10 +21,10 @@
     {"test", &test},
    {"test2", &test2},
 {"BluePos1", &BluePos1},
+{"BluePos2", &BluePos2},
 {"BlueNeg1", &BlueNeg1},
 {"RedPos1", &RedPos1},
 {"RedNeg1", &RedNeg1},
-
 });
 /**
  * Runs initialization code. This occurs as soon as the program is started.

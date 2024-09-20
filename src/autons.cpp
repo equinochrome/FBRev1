@@ -37,6 +37,7 @@ void test2(){
 };
 
 void BluePos1(){
+
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
 BlueTeam = true;
 int future = pros::millis() + 8000;
@@ -95,6 +96,26 @@ int future = pros::millis() + 8000;
     Hook.move(-127);
 
 };
+
+void BluePos2(){
+    //Set up
+chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+BlueTeam = true;
+int future = pros::millis() + 8000;
+chassis.setPose(53,-57, 90);
+// Get mogo and drive back
+chassis.moveToPose( 10.17, -48.475, 118, 2000, {.forwards = false, .lead = .25, .minSpeed = 110});
+pros::delay(1050);
+Mogo.set_value(true);
+pros::delay(175);
+Hook.move(-127);
+pros::delay(100);
+//Swing and get Stacked Ring
+chassis.moveToPoint(13, -48.475, 250);
+chassis.swingToPoint(22, -23, lemlib::DriveSide::RIGHT, 100);
+
+}
+
 
 void BlueNeg1(){
     BlueTeam = true;

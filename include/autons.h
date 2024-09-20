@@ -8,6 +8,8 @@ void test2();
 
 void BluePos1();
 
+void BluePos2();
+
 void BlueNeg1();
 
 void RedPos1();
