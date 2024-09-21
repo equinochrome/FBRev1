@@ -94,6 +94,8 @@ int future = pros::millis() + 8000;
     Mogo.set_value(true);
     Intake.move(127);
     Hook.move(-127);
+    pros::delay(700);
+    Hook.move(0);
 
 };
 
@@ -104,16 +106,42 @@ BlueTeam = true;
 int future = pros::millis() + 8000;
 chassis.setPose(53,-57, 90);
 // Get mogo and drive back
-chassis.moveToPose( 10.17, -48.475, 118, 2000, {.forwards = false, .lead = .25, .minSpeed = 110});
+chassis.moveToPose( 9, -48.475, 120, 2000, {.forwards = false, .lead = .25, .minSpeed = 110});
 pros::delay(1050);
 Mogo.set_value(true);
 pros::delay(175);
 Hook.move(-127);
 pros::delay(100);
-//Swing and get Stacked Ring
-chassis.moveToPoint(13, -48.475, 250);
-chassis.swingToPoint(22, -23, lemlib::DriveSide::RIGHT, 100);
-
+//Drop Mogo at corner
+chassis.moveToPose( 30, -55.33, 180, 1000, { .lead = .25, .minSpeed = 100});
+chassis.turnToHeading(270, 750);
+chassis.moveToPose( 45, -55.33, 180, 1000, {.forwards = false,.lead = .25, .minSpeed = 100});
+Mogo.set_value(false);
+//Get Ring Stack at Alliance Stake
+chassis.moveToPose( 42, -15, -270, 1500, {.lead = .2, .minSpeed = 100});
+pros::delay(100);
+chassis.turnToHeading(35, 1000);
+chassis.moveToPoint( 50, 12, 1500, {.maxSpeed = 40});
+Intake.move(127);
+pros::delay(1300);
+Hook.move(0);
+// Get Mogo No.2
+chassis.moveToPoint(24, -24, 1500, {.forwards = false, .maxSpeed = 60});
+pros::delay(1000);
+int future2 = pros::millis() + 8000;
+Mogo.set_value(true);
+    while (pros::millis()< future2) {
+    if(color.get_hue() > 30){
+        Hook.move(-127);
+    } else{
+        pros::delay(185);
+        Hook.move(127);
+        pros::delay(20);
+    }
+    console.println("stopped");
+    pros::delay(100);
+    Hook.move(-127);
+    };
 }
 
 
@@ -121,7 +149,7 @@ void BlueNeg1(){
     BlueTeam = true;
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     chassis.setPose(62,12, 0);
-    chassis.moveToPose(62, -.25, 0, 2000, {.forwards = false, .lead = .6, .minSpeed = 60});
+    chassis.moveToPose(62, -.25, 0, 2000, {.forwards = false, .lead = .1, .minSpeed = 60});
     chassis.turnToHeading(270, 800);
     chassis.moveToPose(69.5, -.25, 270, 2000, {.forwards = false, .lead = .25, .minSpeed = 60});
     pros::delay(500);
