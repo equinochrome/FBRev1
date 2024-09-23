@@ -101,6 +101,7 @@ int future = pros::millis() + 8000;
 
 void BluePos2(){
     //Set up
+int future2 = pros::millis() + 9000;
 chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
 BlueTeam = true;
 int future = pros::millis() + 8000;
@@ -118,30 +119,40 @@ chassis.turnToHeading(270, 750);
 chassis.moveToPose( 45, -55.33, 180, 1000, {.forwards = false,.lead = .25, .minSpeed = 100});
 Mogo.set_value(false);
 //Get Ring Stack at Alliance Stake
-chassis.moveToPose( 42, -15, -270, 1500, {.lead = .2, .minSpeed = 100});
+Hook.move(-60);
+chassis.moveToPose( 42, -15, -270, 1500, {.lead = .1, .minSpeed = 100});
 pros::delay(100);
-chassis.turnToHeading(35, 1000);
+//chassis.turnToHeading(35, 1000);
 chassis.moveToPoint( 50, 12, 1500, {.maxSpeed = 40});
 Intake.move(127);
 pros::delay(1300);
 Hook.move(0);
-// Get Mogo No.2
-chassis.moveToPoint(24, -24, 1500, {.forwards = false, .maxSpeed = 60});
-pros::delay(1000);
-int future2 = pros::millis() + 8000;
+// Get Mogo No.2 
+chassis.moveToPoint(16, -28, 1500, {.forwards = false, .maxSpeed = 60});
+pros::delay(1500);
 Mogo.set_value(true);
-    while (pros::millis()< future2) {
-    if(color.get_hue() > 30){
-        Hook.move(-127);
+//Sorting rings before scoring into Mogo no.2
+Hook.move(-50);
+while (pros::millis()< future2) {
+    if(color.get_hue() < 30){
+     pros::delay(165);
+    Hook.move(127);
     } else{
-        pros::delay(185);
-        Hook.move(127);
-        pros::delay(20);
+        Hook.move(-127);
     }
-    console.println("stopped");
-    pros::delay(100);
-    Hook.move(-127);
     };
+    //Turn to stack no.2 and grab blue ring
+chassis.swingToHeading(205, lemlib::DriveSide::RIGHT, 1000);
+chassis.turnToPoint(15, -55, 700, {.direction = lemlib::AngularDirection::CW_CLOCKWISE});
+chassis.moveToPoint(15, -45, 1000, {.maxSpeed = 80});
+//Ladder
+chassis.moveToPose(20, 15, 135, 1000);
+pros::delay(1900);
+Hook.move(127);
+Intake.move(-127);
+Lift.set_value(true);
+
+
 }
 
 

@@ -95,8 +95,8 @@ void autonomous() {
 
 
 void opcontrol() {
-
-    bool MogoState = false;
+Lift.set_value(false);
+bool MogoState = false;
 
     // loop forever
     while (true) {
