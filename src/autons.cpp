@@ -123,7 +123,7 @@ Hook.move(-60);
 chassis.moveToPose( 42, -15, -270, 1500, {.lead = .1, .minSpeed = 100});
 pros::delay(100);
 //chassis.turnToHeading(35, 1000);
-chassis.moveToPoint( 50, 12, 1500, {.maxSpeed = 40});
+chassis.moveToPoint( 50, 8, 1500, {.maxSpeed = 40});
 Intake.move(127);
 pros::delay(1300);
 Hook.move(0);
@@ -145,8 +145,8 @@ while (pros::millis()< future2) {
 chassis.swingToHeading(205, lemlib::DriveSide::RIGHT, 1000);
 chassis.turnToPoint(15, -55, 700, {.direction = lemlib::AngularDirection::CW_CLOCKWISE});
 chassis.moveToPoint(15, -45, 1000, {.maxSpeed = 80});
-//Ladder
-chassis.moveToPose(20, 15, 135, 1000);
+//Ladder Touch
+chassis.moveToPose(20, 0, 135, 1000);
 pros::delay(1900);
 Hook.move(127);
 Intake.move(-127);
