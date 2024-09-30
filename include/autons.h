@@ -15,6 +15,8 @@ void BlueNeg1();
 void RedPos1();
 
 void RedNeg1();
+
+void RedNeg2();
 // Other stuff
 
 
