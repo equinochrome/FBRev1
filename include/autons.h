@@ -17,6 +17,8 @@ void RedPos1();
 void RedNeg1();
 
 void RedNeg2();
+
+void skills();
 // Other stuff
 
 

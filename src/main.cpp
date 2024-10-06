@@ -26,6 +26,7 @@
 {"RedPos1", &RedPos1},
 {"RedNeg1", &RedNeg1},
 {"RedNeg2", &RedNeg2},
+{"skills", &skills},
 
 });
 /**
