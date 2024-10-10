@@ -296,7 +296,7 @@ chassis.setPose(-63, 0, 90);
 chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
 //Score Preload
 Hook.move(-127);
-pros::delay(500); 
+pros::delay(300); 
 // Move forward and get mogo on right
 chassis.moveToPose(-50, 0, 90, 2000, {.minSpeed = 50}) ;
 chassis.turnToHeading(0, 700);
@@ -323,24 +323,39 @@ chassis.moveToPose(-24, -30, 90, 1000);
 //Swing 
     chassis.swingToHeading(270, lemlib::DriveSide::LEFT, 700);
 //3 Rings and mogo drop
-    chassis.moveToPose(-60, -48, 270, 2000, {.minSpeed = 45}, false);
- pros::delay(500);
+    chassis.moveToPose(-64, -52, 270, 2000, {.minSpeed = 45}, false);
+    pros::delay(500);
  
     chassis.swingToHeading(180, lemlib::DriveSide::RIGHT, 700);
-    chassis.moveToPose(-48, -62,180, 1000, {.minSpeed = 50});
-    chassis.moveToPose(-58, -58, 45, 2000, { .forwards = false, .minSpeed = 60}, false);
+    chassis.moveToPose(-48, -64,180, 1000, {.minSpeed = 50});
+    chassis.moveToPose(-66, -66, 45, 2000, { .forwards = false, .minSpeed = 60}, false);
     pros::delay(700);
     chassis.swingToHeading(45, lemlib::DriveSide::RIGHT, 500, {}, false);
     Mogo.set_value(false);
 //Mogo 2
-    chassis.moveToPose(-50, 0, 0, 2000, {.minSpeed = 65});
+    chassis.moveToPose(-50, -24, 0, 2000, {.minSpeed = 65});
     chassis.turnToHeading(180, 700);
-    chassis.moveToPose(-50, 30, 180, 2000, { .forwards = false, .minSpeed = 50}, false);
+    chassis.moveToPose(-50, 28, 180, 2000, { .forwards = false, .minSpeed = 50}, false);
     Mogo.set_value(true);
     Intake.move(127);
     chassis.moveToPose(-24, 23, 90, 1000);
-    chassis.moveToPose(-15, 23, 90, 1000, {.minSpeed=72, .earlyExitRange=2});
+    chassis.moveToPose(-18, 23, 90, 1000, {.minSpeed=72, .earlyExitRange=2});
 
     // go to target position
-    chassis.moveToPose(0, 56, 60, 2000, {.minSpeed = 60});
+    chassis.moveToPose(0, 54, 60, 2000, {.minSpeed = 60});
+    //Swing 
+    chassis.swingToHeading(270, lemlib::DriveSide::RIGHT, 700);
+//3 Rings and mogo drop
+    chassis.moveToPose(-60, 48, 270, 2000, {.minSpeed = 45}, false);
+    pros::delay(500);
+    chassis.swingToHeading(0, lemlib::DriveSide::LEFT, 700);
+    chassis.moveToPose(-50, 64,0, 1000, {.minSpeed = 50});
+    chassis.moveToPose(-62, 62, 135, 2000, { .forwards = false, .minSpeed = 60}, false);
+    pros::delay(700);
+    chassis.swingToHeading(135, lemlib::DriveSide::LEFT, 500, {}, false);
+    Mogo.set_value(false);
+// walll stake
+    // pick up one red
+    chassis.moveToPose(24, 44, 90, 4000, {.minSpeed = 90}, false);
+    Hook.move(0);
 }
