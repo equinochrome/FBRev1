@@ -14,8 +14,9 @@ static pros::Controller controller(pros::E_CONTROLLER_MASTER);
 static pros::MotorGroup left_motors(	{-9,-8,-7}, pros::MotorGearset::blue);
 static pros::MotorGroup right_motors({4,6,5}, pros::MotorGearset::blue);
 
-static pros::MotorGroup Intake({-3,10});
+static pros::Motor Intake(-3);
 static pros::Motor Hook(-2, pros::MotorGearset::blue);
+static pros::Motor Arm (10, pros::MotorGearset::green);
 
 static pros::adi::DigitalOut Lift('F'); 
 static pros::adi::DigitalOut Mogo('E'); 
