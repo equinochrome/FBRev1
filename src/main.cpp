@@ -116,12 +116,15 @@ Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
             Intake.move(127);
             Hook.move(-127);
         } else if(controller.get_digital(DIGITAL_R1)){
-             if(color.get_hue() < 30){
+             if(color.get_hue() < 18){
+                Intake.move(0);
+                Hook.move(0);
+             } else if(color.get_hue() > 180){
                 Intake.move(0);
                 Hook.move(0);
              } else{
                 Intake.move(127);
-                Hook.move(-127);
+                Hook.move(-75);
              }
         }
         else if(controller.get_digital(DIGITAL_X)){
@@ -159,8 +162,4 @@ Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
         pros::delay(25);
 
     }
-
-   
-
-
 }
