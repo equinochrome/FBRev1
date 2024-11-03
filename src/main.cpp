@@ -22,6 +22,7 @@
    {"test2", &test2},
 {"BluePos1", &BluePos1},
 {"BluePos2", &BluePos2},
+{"}BlueSoloAwp", &BlueSoloAwp},
 {"BlueNeg1", &BlueNeg1},
 {"RedPos1", &RedPos1},
 {"RedNeg1", &RedNeg1},
@@ -100,7 +101,6 @@ void autonomous() {
 void opcontrol() {
 Lift.set_value(false);
 bool MogoState = false;
-Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
     // loop forever
     while (true) {
@@ -111,6 +111,8 @@ Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
     // move the robot
         chassis.tank(leftY, rightY);
+
+        Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
       
         if(controller.get_digital(DIGITAL_R2)){
             Intake.move(127);

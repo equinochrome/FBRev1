@@ -126,10 +126,10 @@ pros::delay(100);
 chassis.moveToPoint( 50, 8, 1500, {.maxSpeed = 40});
 Intake.move(127);
 pros::delay(1550);
-Hook.move(100);
+Hook.move(127);
 // Get Mogo No.2 
-chassis.moveToPoint(14, -30, 1500, {.forwards = false, .maxSpeed = 60});
-pros::delay(1500);
+chassis.moveToPoint(14, -32, 1500, {.forwards = false, .maxSpeed = 60});
+pros::delay(1600);
 Mogo.set_value(true);
 //Sorting rings before scoring into Mogo no.2
 
@@ -153,9 +153,9 @@ void BlueNeg1(){
     BlueTeam = true;
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     chassis.setPose(62,12, 0);
-    chassis.moveToPose(62, 0.25, 0, 2000, {.forwards = false, .lead = .1, .minSpeed = 60});
+    chassis.moveToPose(62, 0, 0, 2000, {.forwards = false, .lead = .1, .minSpeed = 60});
     chassis.turnToHeading(270, 800);
-    chassis.moveToPose(69.5, 0.25, 270, 2000, {.forwards = false, .lead = .25, .minSpeed = 60});
+    chassis.moveToPose(69.5, 0, 270, 2000, {.forwards = false, .lead = .25, .minSpeed = 60});
     pros::delay(500);
     Hook.move(-127);
     pros::delay(500);
@@ -264,18 +264,45 @@ void RedNeg1(){
     chassis.moveToPose(-12.5, 52, -295, 2000, {.lead = .6});
     pros::delay(500);
     chassis.moveToPose(-35 , 24.7, -285, 2000, {.forwards = false, .lead = .25, .minSpeed = 100});
-    chassis.turnToHeading(-295, 800);
+    chassis.turnToHeading(-295, 600);
     pros::delay(400);
     //LADDER TOUCH
-    chassis.moveToPose(-18, 8, 135, 2000, {.lead = .25, .minSpeed = 100});
-    Intake.move(0);
-    Hook.move(0);
-    pros::delay(700);
-    Lift.set_value(true);
+    chassis.moveToPose(-18, 8, 135, 1000, {.lead = .25, .minSpeed = 100});
+  
 }
 
 void RedNeg2(){
-
+//SET UP
+    BlueTeam = false;
+    chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+    chassis.setPose(-62,10.5, 0);
+    //ALLIANCE STAKE
+    chassis.moveToPose(-62,-1, 0, 2000, {.forwards = false, .lead = .6, .minSpeed = 60});
+    chassis.turnToHeading(90, 800);
+    chassis.moveToPose(-69, -1, 90, 2000, {.forwards = false, .lead = .25, .minSpeed = 60});
+    pros::delay(500);
+    Hook.move(-127);
+    pros::delay(500);
+    Hook.move(0);
+    chassis.moveToPose(-50, 13, 120, 4000, {.lead = .4, .minSpeed = 100});
+    chassis.turnToHeading(285, 500);
+    //GO TO MOGO
+    chassis.moveToPose(-23, 23.7, 262, 2000, {.forwards = false, .lead = .25, .maxSpeed = 80});
+    pros::delay(1000);
+    Mogo.set_value(true);
+    chassis.turnToHeading(0, 800);
+    //GO TO MID STACK
+    Intake.move(127);
+    Hook.move(-127);
+    chassis.moveToPose(-30, 42, -345, 2000, {.lead = .25});
+    chassis.turnToHeading(-250, 800);
+    chassis.moveToPose(-13, 44, -280, 2000, {.lead = .4});
+    chassis.swingToHeading(-325, lemlib::DriveSide::RIGHT, 800);
+    chassis.moveToPose(-12.5, 52, -295, 2000, {.lead = .6});
+    pros::delay(500);
+    chassis.moveToPose(-35 , 24.7, -285, 2000, {.forwards = false, .lead = .25, .minSpeed = 100});
+    chassis.turnToHeading(-295, 800);
+    pros::delay(400);
 }
 
 void skills(){
@@ -319,7 +346,7 @@ chassis.moveToPose(-24, -25, 90, 1500);
      chassis.moveToPose(-63, -48, 270, 2000, {.minSpeed = 45}, false);
     pros::delay(1000);
      chassis.swingToHeading(180, lemlib::DriveSide::RIGHT, 700);
-    chassis.moveToPose(-48, -63,180, 1000, {.minSpeed = 50});
+    chassis.moveToPose(-51, -63,180, 1000, {.minSpeed = 50});
     pros::delay(800);
      chassis.moveToPose(-66, -66, 45, 2000, { .forwards = false, .minSpeed = 60}, false);
     pros::delay(1200);
@@ -349,7 +376,7 @@ chassis.moveToPose(-66.5, 65, 145, 2000, { .forwards = false, .minSpeed = 60}, f
     // 1 red ring
     chassis.moveToPose(12, 48, 90, 2000, {.minSpeed = 90});
     chassis.moveToPose(24, 18, 90, 2000, {.minSpeed = 70});
-    pros::delay(700);
+    pros::delay(800);
     Hook.move(0);
 
     // BLUE MOGO PUSH
@@ -362,21 +389,64 @@ chassis.moveToPose(-66.5, 65, 145, 2000, { .forwards = false, .minSpeed = 60}, f
     //Intake.move(127);
 
     chassis.turnToHeading(310, 1000);
-    chassis.moveToPoint(36, -8, 2000, { .forwards = false, .minSpeed = 60}, false);
+    chassis.moveToPoint(43.5, -9, 2000, { .forwards = false, .minSpeed = 60}, false);
     Mogo.set_value(true);
     pros::delay(150);
     Hook.move(-117);
     Intake.move(127);
-    pros::delay(500);
+    pros::delay(1500);
     chassis.moveToPoint(18, -23, 2000, {.minSpeed = 75});
-    chassis.moveToPose(15, -54, 135, 2000, {.minSpeed = 60}, false);
+    chassis.moveToPose(15, -50, 135, 2000, {.minSpeed = 60}, false);
     chassis.moveToPose(34, -64, 90, 2000, {.minSpeed = 60}, false);
     pros::delay(500);
     chassis.moveToPose(9, -54, 90, 2000, {.forwards = false, .minSpeed = 60}, false);
-    chassis.moveToPose(36, -52, 90, 2000, {.minSpeed = 60}, false);
+    chassis.moveToPose(34, -52, 90, 2000, {.minSpeed = 60}, false);
     chassis.moveToPoint(18, -40, 2000, {.forwards = false, .minSpeed = 75}, false);
+    pros::delay(450);
     Mogo.set_value(false);
     pros::delay(100);
+    Hook.move(127);
+    Intake.move(-127);
     chassis.moveToPose(56, 24, 25, 4000, {.minSpeed = 65}, false);
-    chassis.moveToPose(58, 54, 5, 4000, {.minSpeed = 70}, false);
+    chassis.moveToPose(58, 52, 5, 4000, {.minSpeed = 70}, false);
+    Intake.move(0);
+    chassis.moveToPose(48, 20, 20, 2000, {.forwards = false, .minSpeed = 75}, false);
+    Intake.move(127);
+    Hook.move(0);
+    chassis.moveToPose(43, 48, 0, 3000, {.minSpeed = 60}, false);
+    Mogo.set_value(false);
+
+    // chassis.moveToPoint(48, 1.5, 4000, {.forwards = false, .minSpeed = 50}, false);
+    // chassis.turnToHeading(270, 1000);
+
+    chassis.moveToPose(54, -72, -5, 10000, {.forwards = false, .minSpeed = 100}, false);
+}
+
+
+void BlueSoloAwp(){
+//Set up
+chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+BlueTeam = true;
+chassis.setPose(55.5,32, 0);
+//Bump Robor
+chassis.moveToPose(52, 45, 330, 2500, {.minSpeed = 100});
+pros::delay(650);
+Intake.move(127);
+chassis.moveToPoint(55.5, 34, 1000, {.forwards = false, .minSpeed = 60});
+chassis.turnToPoint(24, 24, 700, {.forwards = false});
+chassis.moveToPoint(18, 20, 2000, {.forwards = false}, false);
+Mogo.set_value(true);
+pros::delay(150);
+Hook.move(-105);
+chassis.moveToPoint(24, 38, 1500, {}, false);
+pros::delay(500);
+chassis.moveToPoint(48, -4, 3000);
+pros::delay(1000);
+Mogo.set_value(false);
+Intake.move(-127);
+chassis.moveToPoint(21, -26, 3000, {.forwards = false}, false);
+Mogo.set_value(true);
+chassis.moveToPoint(24, -48, 3000);
+Intake.move(127);
 }
