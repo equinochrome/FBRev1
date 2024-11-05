@@ -456,6 +456,42 @@ chassis.moveToPoint(24, -50, 3000, {}, false);
 pros::delay(1000);
 Hook.move(0);
 Intake.move(-127);
-chassis.moveToPoint(14, -8, 2000, {.forwards = false}, false);
+chassis.moveToPoint(8, -8, 2000, {.forwards = false}, false);
+Lift.set_value(true);
+}
+
+void RedSoloAwp(){
+//Set up
+chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+BlueTeam = false;
+chassis.setPose(-55.5,32, 0);
+chassis.moveToPose(-52, 45, -330, 2500, {.minSpeed = 100});
+pros::delay(650);
+Intake.move(127);
+chassis.moveToPoint(-55.5, 34, 1000, {.forwards = false, .minSpeed = 60});
+chassis.turnToPoint(-24, 24, 700, {.forwards = false});
+chassis.moveToPoint(-18, 20, 2000, {.forwards = false, .maxSpeed = 75}, false);
+Mogo.set_value(true);
+pros::delay(150);
+Hook.move(-105);
+pros::delay(500);
+chassis.moveToPoint(-24, 38, 1500, {}, false);
+pros::delay(500);
+chassis.moveToPoint(-7, 48, 1500, {}, false);
+chassis.moveToPoint(-24, 38, 1500, {.forwards = false}, false);
+pros::delay(500);
+chassis.moveToPoint(-48, -4, 3000);
+pros::delay(1000);
+Mogo.set_value(false);
+Intake.move(-127);
+chassis.moveToPoint(-20, -26, 3000, {.forwards = false, .maxSpeed = 75}, false);
+Mogo.set_value(true);
+Intake.move(127);
+chassis.moveToPoint(-24, -50, 3000, {}, false);
+pros::delay(1250);
+Hook.move(0);
+Intake.move(-127);
+chassis.moveToPoint(-7, -8, 2000, {.forwards = false}, false);
 Lift.set_value(true);
 }

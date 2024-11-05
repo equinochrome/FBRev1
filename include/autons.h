@@ -21,6 +21,8 @@ void RedNeg2();
 void skills();
 
 void BlueSoloAwp();
+
+void RedSoloAwp();
 // Other stuff
 
 

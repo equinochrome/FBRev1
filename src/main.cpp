@@ -27,6 +27,7 @@
 {"RedPos1", &RedPos1},
 {"RedNeg1", &RedNeg1},
 {"RedNeg2", &RedNeg2},
+{"}RedSoloAwp", &RedSoloAwp},
 {"skills", &skills},
 
 });
@@ -42,7 +43,7 @@
 void initialize() {
     chassis.calibrate();
     Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-    
+    console.println("calibrated");
     
 
 }
