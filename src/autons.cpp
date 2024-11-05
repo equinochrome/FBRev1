@@ -441,6 +441,7 @@ pros::delay(150);
 Hook.move(-105);
 pros::delay(500);
 chassis.moveToPoint(24, 38, 1500, {}, false);
+pros::delay(500);
 chassis.moveToPoint(7, 48, 1500, {}, false);
 chassis.moveToPoint(24, 38, 1500, {.forwards = false}, false);
 pros::delay(500);
@@ -452,7 +453,9 @@ chassis.moveToPoint(20, -26, 3000, {.forwards = false, .maxSpeed = 75}, false);
 Mogo.set_value(true);
 Intake.move(127);
 chassis.moveToPoint(24, -50, 3000, {}, false);
-pros::delay(500);
+pros::delay(1000);
+Hook.move(0);
+Intake.move(-127);
 chassis.moveToPoint(14, -8, 2000, {.forwards = false}, false);
 Lift.set_value(true);
 }
