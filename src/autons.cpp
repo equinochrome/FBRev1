@@ -107,7 +107,7 @@ Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 BlueTeam = true;
 chassis.setPose(53,-57, 90);
 // Get mogo and drive back
-chassis.moveToPose( 9, -48.5, 120, 2000, {.forwards = false, .lead = .25, .minSpeed = 110});
+chassis.moveToPose( 9.6, -48.5, 120, 2000, {.forwards = false, .lead = .25, .minSpeed = 110});
 pros::delay(1050);
 Mogo.set_value(true);
 pros::delay(175);
@@ -120,10 +120,11 @@ chassis.moveToPose( 45, -55.33, 270, 1000, {.forwards = false,.lead = .25, .minS
 Mogo.set_value(false);
 //Get Ring Stack at Alliance Stake
 Hook.move(-60);
-chassis.moveToPose( 42, -15, -270, 1500, {.lead = .1, .minSpeed = 100});
+Hook.move(-60);
+chassis.moveToPose( 42, -15, -270, 1500, {.lead = .1, .minSpeed = 80});
 pros::delay(100);
 //chassis.turnToHeading(35, 1000);
-chassis.moveToPoint( 50, 8, 1500, {.maxSpeed = 40});
+chassis.moveToPoint( 52, 10, 1500, {.maxSpeed = 40});
 Intake.move(127);
 pros::delay(1550);
 Hook.move(127);
@@ -135,6 +136,7 @@ Mogo.set_value(true);
 
  //Turn to stack no.2 and grab blue ring
 Hook.move(-127);
+pros::delay(400);
 chassis.swingToHeading(205, lemlib::DriveSide::RIGHT, 600);
 // chassis.turnToPoint(15, -55, 700, {.direction = lemlib::AngularDirection::CW_CLOCKWISE});
 chassis.moveToPoint(16, -45, 1300, {.maxSpeed = 80}, false);
