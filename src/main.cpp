@@ -41,6 +41,7 @@
 
 
 void initialize() {
+    Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     chassis.calibrate();
     Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     console.println("calibrated");
@@ -102,6 +103,9 @@ void autonomous() {
 void opcontrol() {
 Lift.set_value(false);
 bool MogoState = false;
+bool LiftState = false;
+Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+Arm.brake();
 
     // loop forever
     while (true) {
@@ -114,16 +118,21 @@ bool MogoState = false;
         chassis.tank(leftY, rightY);
 
         Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+        Arm.brake();
       
         if(controller.get_digital(DIGITAL_R2)){
-            Intake.move(127);
             Hook.move(-127);
+            if(LiftState){
+                Intake.set_brake_mode(pros::MotorBrake::hold);
+                Intake.move(0);
+            } else{
+                Intake.set_brake_mode(pros::MotorBrake::coast);
+                Intake.move(127);
+            }
         } else if(controller.get_digital(DIGITAL_R1)){
              if(color.get_hue() < 18){
-                Intake.move(0);
                 Hook.move(0);
              } else if(color.get_hue() > 180){
-                Intake.move(0);
                 Hook.move(0);
              } else{
                 Intake.move(127);
@@ -150,9 +159,11 @@ bool MogoState = false;
         if (controller.get_digital(DIGITAL_UP)){
         Lift.set_value(true);
         Mogo.set_value(true);
+        LiftState = true;
         } else if(controller.get_digital(DIGITAL_DOWN)){
         Lift.set_value(false);
         Mogo.set_value(false);
+        LiftState = false;
         }
 
         if (controller.get_digital(DIGITAL_A)){
