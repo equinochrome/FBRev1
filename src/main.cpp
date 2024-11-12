@@ -28,6 +28,7 @@
 {"RedNeg1", &RedNeg1},
 {"RedNeg2", &RedNeg2},
 {"}RedSoloAwp", &RedSoloAwp},
+{"BlueuSigSAwp", &BlueSigSAwp},
 {"skills", &skills},
 
 });
@@ -79,8 +80,10 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
+    Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     pros::delay(100);
         console.println("Erm what the sigma");
+        Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	        selector.run_auton();
 }
 

@@ -23,6 +23,8 @@ void skills();
 void BlueSoloAwp();
 
 void RedSoloAwp();
+
+void BlueSigSAwp();
 // Other stuff
 
 

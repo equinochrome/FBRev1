@@ -107,7 +107,7 @@ Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 BlueTeam = true;
 chassis.setPose(53,-57, 90);
 // Get mogo and drive back
-chassis.moveToPose( 9.6, -48.5, 120, 2000, {.forwards = false, .lead = .25, .minSpeed = 110});
+chassis.moveToPose( 9, -48, 120, 2000, {.forwards = false, .lead = .25, .minSpeed = 110});
 pros::delay(1050);
 Mogo.set_value(true);
 pros::delay(175);
@@ -212,8 +212,9 @@ Hook.move(-66);
 chassis.moveToPose( -42, -15, 270, 1500, {.lead = .1, .minSpeed = 100});
 pros::delay(100);
 chassis.moveToPoint( -50, 8, 1500, {.maxSpeed = 40});
-Intake.move(127);
+Intake.move(-127);
 pros::delay(1550);
+Intake.move(127);
 Hook.move(100);
 // Get Mogo No.2 
 chassis.moveToPoint(-15, -34, 1500, {.forwards = false, .maxSpeed = 60});
@@ -234,6 +235,7 @@ Lift.set_value(true);
 
 
 }
+
 
 
 void RedNeg1(){
@@ -448,12 +450,12 @@ pros::delay(650);
 Intake.move(127);
 chassis.moveToPoint(55.5, 34, 1000, {.forwards = false, .minSpeed = 60});
 chassis.turnToPoint(24, 24, 700, {.forwards = false});
-chassis.moveToPoint(18, 20, 2000, {.forwards = false, .maxSpeed = 75}, false);
+chassis.moveToPoint(15, 22, 2000, {.forwards = false, .maxSpeed = 75}, false);
 Mogo.set_value(true);
 pros::delay(150);
 Hook.move(-105);
 pros::delay(500);
-chassis.moveToPoint(24, 38, 1500, {}, false);
+chassis.moveToPoint(24, 40, 1500, {}, false);
 pros::delay(500);
 chassis.moveToPoint(7, 48, 1500, {}, false);
 chassis.moveToPoint(24, 38, 1500, {.forwards = false}, false);
@@ -484,12 +486,12 @@ pros::delay(650);
 Intake.move(127);
 chassis.moveToPoint(-55.5, 34, 1000, {.forwards = false, .minSpeed = 60});
 chassis.turnToPoint(-24, 24, 700, {.forwards = false});
-chassis.moveToPoint(-18, 20, 2000, {.forwards = false, .maxSpeed = 75}, false);
+chassis.moveToPoint(-14, 22.5, 2000, {.forwards = false, .maxSpeed = 75}, false);
 Mogo.set_value(true);
 pros::delay(150);
-Hook.move(-105);
+Hook.move(-127);
 pros::delay(500);
-chassis.moveToPoint(-24, 38, 1500, {}, false);
+chassis.moveToPoint(-23,40, 1500, {}, false);
 pros::delay(500);
 chassis.moveToPoint(-7, 48, 1500, {}, false);
 chassis.moveToPoint(-24, 38, 1500, {.forwards = false}, false);
@@ -498,7 +500,7 @@ chassis.moveToPoint(-48, -4, 3000);
 pros::delay(1000);
 Mogo.set_value(false);
 Intake.move(-127);
-chassis.moveToPoint(-20, -26, 3000, {.forwards = false, .maxSpeed = 75}, false);
+chassis.moveToPoint(-20, -27, 3000, {.forwards = false, .maxSpeed = 75}, false);
 Mogo.set_value(true);
 Intake.move(127);
 chassis.moveToPoint(-24, -50, 3000, {}, false);
@@ -507,4 +509,31 @@ Hook.move(0);
 Intake.move(-127);
 chassis.moveToPoint(-7, -8, 2000, {.forwards = false}, false);
 Lift.set_value(true);
+}
+
+void BlueSigSAwp(){
+    //Set up
+chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+BlueTeam = true;
+chassis.setPose(55.5,12, 0);
+//Alliance Stake
+chassis.moveToPose(55.5, 0, 3, 2000, {.forwards= false, .minSpeed = 80, .earlyExitRange= 3}, false);
+chassis.turnToHeading(270, 500,{lemlib::AngularDirection::CCW_COUNTERCLOCKWISE});
+chassis.moveToPose(64,3,270, 700,{.forwards=false, .minSpeed=80}, false);
+Hook.move(-127);
+pros::delay(300);
+//Get Mogo on Neg Side + Push Alliance bot
+Intake.move(127);
+chassis.moveToPose(58, 26, 345, 2000, { .minSpeed= 80, .earlyExitRange=1}, false);
+Hook.move(0);
+chassis.moveToPose(22,30, 120, 4000, { .forwards= false, .lead=.6, .minSpeed=70}, false);
+//chassis.moveToPose(24, 24, 120, 2000, {.forwards = false, .minSpeed=80});
+Mogo.set_value(true);
+Hook.move(-127);
+//Ring Stack Grab
+chassis.swingToHeading(0, lemlib::DriveSide::LEFT, 2000, {.minSpeed = 80, .earlyExitRange=20});
+chassis.moveToPose(15, 50, 30, 2000,{.minSpeed=60, .earlyExitRange=2});
+chassis.moveToPose(12,65, 30, 1000,{.maxSpeed=60, .earlyExitRange = 1});
+chassis.moveToPoint(24, 48, 10000, {.maxSpeed= 70});
 }
