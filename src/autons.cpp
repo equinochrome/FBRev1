@@ -518,22 +518,30 @@ Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 BlueTeam = true;
 chassis.setPose(55.5,12, 0);
 //Alliance Stake
-chassis.moveToPose(55.5, 0, 3, 2000, {.forwards= false, .minSpeed = 80, .earlyExitRange= 3}, false);
+chassis.moveToPose(55.5, 1, 3, 2000, {.forwards= false, .minSpeed = 80, .earlyExitRange= 3}, false);
 chassis.turnToHeading(270, 500,{lemlib::AngularDirection::CCW_COUNTERCLOCKWISE});
-chassis.moveToPose(64,3,270, 700,{.forwards=false, .minSpeed=80}, false);
+chassis.moveToPose(64,4,270, 700,{.forwards=false, .minSpeed=80}, false);
 Hook.move(-127);
 pros::delay(300);
+chassis.moveToPoint(58, 4, 1000, {.minSpeed=80, .earlyExitRange=2});
 //Get Mogo on Neg Side + Push Alliance bot
 Intake.move(127);
-chassis.moveToPose(58, 26, 345, 2000, { .minSpeed= 80, .earlyExitRange=1}, false);
+chassis.moveToPose(57, 29, 345, 2000, { .minSpeed= 80, .earlyExitRange=1}, false);
 Hook.move(0);
-chassis.moveToPose(22,30, 120, 4000, { .forwards= false, .lead=.6, .minSpeed=70}, false);
-//chassis.moveToPose(24, 24, 120, 2000, {.forwards = false, .minSpeed=80});
+chassis.moveToPose(58, 13, 345, 700, {.forwards=false, .minSpeed=100, .earlyExitRange=1});
+chassis.moveToPose(20,32, 120, 4000, { .forwards= false, .lead=.6, .minSpeed=70}, false);
 Mogo.set_value(true);
 Hook.move(-127);
-//Ring Stack Grab
-chassis.swingToHeading(0, lemlib::DriveSide::LEFT, 2000, {.minSpeed = 80, .earlyExitRange=20});
-chassis.moveToPose(15, 50, 30, 2000,{.minSpeed=60, .earlyExitRange=2});
-chassis.moveToPose(12,65, 30, 1000,{.maxSpeed=60, .earlyExitRange = 1});
-chassis.moveToPoint(24, 48, 10000, {.maxSpeed= 70});
+chassis.moveToPoint(24, 48, 2000, { .minSpeed= 80, .earlyExitRange=1});
+chassis.moveToPoint(44, -5, 2500, { .minSpeed= 70, .earlyExitRange=1});
+pros::delay(1400);
+Intake.move(-127);
+Mogo.set_value(false);
+//Mogo 2
+chassis.moveToPoint(26, -27, 1500, { .forwards = false, .minSpeed = 70}, false);
+Mogo.set_value(true);
+pros::delay(200);
+Intake.move(127);
+chassis.moveToPose(20, -60, 270, 1000, {}, false);
+chassis.moveToPose(48, -48, 305, 10000, { .forwards = false});
 }
