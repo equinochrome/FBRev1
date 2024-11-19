@@ -28,8 +28,12 @@
 {"RedNeg1", &RedNeg1},
 {"RedNeg2", &RedNeg2},
 {"}RedSoloAwp", &RedSoloAwp},
-{"BlueuSigSAwp", &BlueSigSAwp},
+{"BlueSigSAwp", &BlueSigSAwp},
+{"BlueSigSAwp2", &BlueSigSAwp},
+{"RedSigSAWP", &RedSigSAWP},
 {"skills", &skills},
+{"red4ring", &red4ring}
+
 
 });
 /**
@@ -109,6 +113,8 @@ bool MogoState = false;
 bool LiftState = false;
 Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 Arm.brake();
+Arm.move_relative(-30, 127);
+
 
     // loop forever
     while (true) {

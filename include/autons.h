@@ -25,6 +25,12 @@ void BlueSoloAwp();
 void RedSoloAwp();
 
 void BlueSigSAwp();
+
+void RedSigSAWP();
+
+void red4ring();
+
+void BlueSigSAwp();
 // Other stuff
 
 
