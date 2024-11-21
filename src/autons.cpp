@@ -547,25 +547,47 @@ void BlueSigSAwp2(){
     //Set up
 chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
 Arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+Arm.move_relative(-30, 127);
+
 BlueTeam = true;
-chassis.setPose(55.5,12, 0);
+chassis.setPose(55.5,-11.25, 180);
 //Alliance Stake
-chassis.moveToPose(55.5, 1, 3, 2000, {.forwards= false, .minSpeed = 80, .earlyExitRange= 3}, false);
-chassis.turnToHeading(270, 500,{lemlib::AngularDirection::CCW_COUNTERCLOCKWISE});
-chassis.moveToPose(64,4,270, 700,{.forwards=false, .minSpeed=80}, false);
+chassis.moveToPose(55.5, -1, 180, 2000, {.forwards= false, .minSpeed = 80, .earlyExitRange= 3}, false);
+chassis.turnToHeading(270, 700);
+chassis.moveToPose(64, -1, 270, 700, {.forwards= false, .minSpeed = 80, .earlyExitRange= 3}, false);
 Hook.move(-127);
 pros::delay(300);
-chassis.moveToPoint(58, 0, 1000, {.minSpeed=80, .earlyExitRange=2});
-//Get Mogo on Neg Side + Push Alliance bot
+// push robot and intake 2nd preload
+chassis.moveToPoint(58, 0, 1000, {.minSpeed=100, .earlyExitRange=2});
 Intake.move(127);
-chassis.moveToPose(57, 29, 345, 2000, { .minSpeed= 80, .earlyExitRange=1}, false);
+chassis.moveToPose(57, -29, 205, 2000, { .minSpeed= 100, .earlyExitRange=1}, false);
 Hook.move(0);
-chassis.moveToPose(58, 13, 345, 700, {.forwards=false, .minSpeed=100, .earlyExitRange=1});
-chassis.moveToPose(20,34, 120, 4000, { .forwards= false, .lead=.6, .minSpeed=70}, false);
+chassis.moveToPose(58, -13, 180, 700, {.forwards=false, .minSpeed=100, .earlyExitRange=1});
+chassis.moveToPose(16,-34, 60, 4000, { .forwards= false, .lead=.6, .minSpeed=60}, false);
+Hook.move(-127);
+Mogo.set_value(true);
+chassis.moveToPoint(24, -46, 2000, { .minSpeed= 100, .earlyExitRange=1}, false);
+chassis.turnToHeading(270, 700, { .minSpeed= 80, .earlyExitRange=1}, false);
+Hook.move(0);
+Mogo.set_value(false);
+Arm.move_relative(1200, 127);
+chassis.moveToPose(9, -55.4, 270, 2000, { .minSpeed= 100});
+chassis.moveToPose(24, -32, 180, 2000, { .forwards = false, .minSpeed = 100, .earlyExitRange=1}, false);
+Arm.move_relative(-1200, 127);
+chassis.moveToPoint(48, 0, 2000, { .forwards = false,  .minSpeed = 100, .earlyExitRange=1});
+chassis.moveToPoint(52, 28, 2000, { .forwards = false,  .minSpeed = 90, .earlyExitRange=1});
+chassis.moveToPoint(20, 18.5, 2000, { .forwards = false,  .minSpeed = 80}, false);
 Mogo.set_value(true);
 Hook.move(-127);
-chassis.moveToPoint(12, 0, 1000);
+chassis.moveToPoint(16, 27, 1500, { .minSpeed = 100}, false);
+pros::delay(750);
+chassis.moveToPoint(12, 12, 1500, { .minSpeed = 100}, false);
+Lift.set_value(true);
+Hook.move(127);
+
+
 }
+
 void RedSigSAWP(){
     //Set up
 chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);

@@ -29,7 +29,7 @@
 {"RedNeg2", &RedNeg2},
 {"}RedSoloAwp", &RedSoloAwp},
 {"BlueSigSAwp", &BlueSigSAwp},
-{"BlueSigSAwp2", &BlueSigSAwp},
+{"BlueSigSAwp2", &BlueSigSAwp2},
 {"RedSigSAWP", &RedSigSAWP},
 {"skills", &skills},
 {"red4ring", &red4ring}
