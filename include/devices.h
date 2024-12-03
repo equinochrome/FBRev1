@@ -11,12 +11,12 @@
 // Controller
 static pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
-static pros::MotorGroup left_motors(	{-9,-8,-7}, pros::MotorGearset::blue);
-static pros::MotorGroup right_motors({4,6,5}, pros::MotorGearset::blue);
+static pros::MotorGroup left_motors(	{-16,-11,13}, pros::MotorGearset::blue);
+static pros::MotorGroup right_motors({12,20,-15}, pros::MotorGearset::blue);
 
-static pros::Motor Intake(-3);
-static pros::Motor Hook(-2, pros::MotorGearset::blue);
-static pros::Motor Arm (10, pros::MotorGearset::green);
+static pros::Motor Intake(10);
+static pros::Motor Hook(-10, pros::MotorGearset::blue);
+static pros::MotorGroup Arm ({-7, 18}, pros::MotorGearset::green);
 
 static pros::adi::DigitalOut Lift('F'); 
 static pros::adi::DigitalOut Mogo('E'); 
@@ -32,11 +32,11 @@ static lemlib::Drivetrain drivetrain(&left_motors, // left motor group
 
 
 // create an imu on port 1
-static pros::Imu imu(1);
+static pros::Imu imu(6);
 
 
 // create a v5 rotation sensor on port 7
-static pros::Rotation rotation_sensor(13);
+static pros::Rotation rotation_sensor(1);
 
 
 // replace 1 with the port the rotation sensor is connected to

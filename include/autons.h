@@ -30,9 +30,11 @@ void RedSigSAWP();
 
 void red4ring();
 
-void BlueSigSAwp();
-
 void BlueSigSAwp2();
+
+void RedSigSAWP2();
+
+void blue4ring();
 // Other stuff
 
 

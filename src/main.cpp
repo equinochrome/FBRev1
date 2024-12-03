@@ -31,8 +31,10 @@
 {"BlueSigSAwp", &BlueSigSAwp},
 {"BlueSigSAwp2", &BlueSigSAwp2},
 {"RedSigSAWP", &RedSigSAWP},
+{"RedSigSAWP2", &RedSigSAWP2},
 {"skills", &skills},
-{"red4ring", &red4ring}
+{"red4ring", &red4ring},
+{"blue4ring", &blue4ring}
 
 
 });
